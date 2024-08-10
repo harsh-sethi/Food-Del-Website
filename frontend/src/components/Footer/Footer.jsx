@@ -19,7 +19,7 @@ const Footer = () => {
             <a href="https://www.facebook.com/">
               <img src={assets.facebook_icon} alt="" />
             </a>
-            <a href="https://www.instagram.com/">
+            <a href="https://x.com/?lang=en">
               <img src={assets.twitter_icon} alt="" />
             </a>
             <a href="https://in.linkedin.com/">
