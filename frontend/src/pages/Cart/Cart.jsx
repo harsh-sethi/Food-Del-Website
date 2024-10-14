@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import "./Cart.css";
 import { StoreContext } from "../../context/StoreContext";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Cart = () => {
   const {
@@ -17,8 +19,12 @@ const Cart = () => {
 
   const handleCheckout = () => {
     if (!token) {
-      alert(
-        "Please sign in using the dummy credentials provided on the sign-in page or using an email address to use this feature."
+      toast.error(
+        "Please sign in using the dummy credentials provided on the sign-in page or using an email address to use this feature.",
+        {
+          position: toast.POSITION.TOP_CENTER,
+          autoClose: 5000,
+        }
       );
     } else {
       navigate("/order");
@@ -27,6 +33,7 @@ const Cart = () => {
 
   return (
     <div className="cart">
+      <ToastContainer />
       <div className="cart-items">
         <div className="cart-items-title">
           <p>Items</p>
@@ -56,6 +63,7 @@ const Cart = () => {
               </div>
             );
           }
+          return null; // Ensure to return null if the condition fails
         })}
       </div>
       <div className="cart-bottom">
